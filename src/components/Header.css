@@ -1,0 +1,56 @@
+.header {
+  background-color: #cc0000;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header h1 {
+  color: white;
+  font-size: 1.4rem;
+}
+
+.header nav {
+  display: flex;
+  gap: 10px;
+}
+
+.header nav a {
+  color: white;
+  text-decoration: none;
+  padding: 6px 14px;
+  border-radius: 4px;
+  font-size: 0.95rem;
+}
+
+.header nav a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.header nav a.active {
+  background-color: white;
+  color: #cc0000;
+  font-weight: bold;
+}
+.header-user {
+  color: white;
+  font-size: 0.85rem;
+  padding: 5px 10px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 4px;
+}
+
+.btn-cerrar {
+  color: white;
+  background: transparent;
+  border: 1px solid white;
+  padding: 5px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.btn-cerrar:hover {
+  background: rgba(255,255,255,0.2);
+}

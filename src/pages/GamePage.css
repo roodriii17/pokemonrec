@@ -1,0 +1,235 @@
+/* --- ANIMACIONES BASE (Keyframes) --- */
+
+/* Entrada suave con rebote para la caja y el Pokémon */
+@keyframes popIn {
+  0% { transform: scale(0.9); opacity: 0; }
+  70% { transform: scale(1.03); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Animación de flotado suave para el Pokémon */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Temblor para cuando eliges la respuesta incorrecta */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-6px); }
+  40%, 80% { transform: translateX(6px); }
+}
+
+/* Pulso sutil para el botón correcto o el botón de avanzar */
+@keyframes pulseGlow {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.4); }
+  70% { transform: scale(1.02); box-shadow: 0 0 0 10px rgba(76, 175, 80, 0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(76, 175, 80, 0); }
+}
+
+
+/* --- ESTILOS MODIFICADOS Y MEJORADOS --- */
+
+.game-box {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 12px; /* Un poco más curvo, más moderno */
+  padding: 25px;
+  max-width: 550px;
+  margin: 0 auto;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05); /* Sombra suave de fondo */
+  animation: popIn 0.4s ease-out forwards; /* Entrada animada de la tarjeta */
+}
+
+.game-box h2 {
+  margin-bottom: 5px;
+}
+
+.game-score {
+  display: flex;
+  justify-content: space-around;
+  background: #f5f5f5;
+  border-radius: 6px;
+  padding: 10px;
+  margin: 15px 0;
+}
+
+.game-score div {
+  text-align: center;
+}
+
+.game-score span {
+  display: block;
+  font-size: 0.7rem;
+  color: #999;
+  text-transform: uppercase;
+}
+
+.game-score strong {
+  font-size: 1.2rem;
+}
+
+.game-img {
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+  margin: 10px auto;
+  display: block;
+  transition: filter 0.3s ease, transform 0.3s ease; /* Transición suave al revelarse */
+  animation: float 3s ease-in-out infinite; /* El Pokémon flota en su lugar */
+}
+
+.game-img.hidden {
+  filter: brightness(0);
+}
+
+.clue-box {
+  background: #fff8e1;
+  border: 1px solid #ffd54f;
+  border-radius: 6px;
+  padding: 10px 15px;
+  margin: 8px 0;
+  font-size: 0.9rem;
+  text-align: left;
+  animation: popIn 0.3s ease-out; /* La pista aparece con estilo */
+}
+
+.options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.options button {
+  padding: 12px; /* Un pelín más de espacio para clickear */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+  font-size: 0.95rem;
+  text-transform: capitalize;
+  font-weight: 500;
+  /* Transición suave para color, fondo y tamaño al pasar el mouse */
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); 
+}
+
+/* Efecto hover: se eleva un poquito y cambia el borde */
+.options button:hover:not(:disabled) {
+  background: #f8f9fa;
+  border-color: #aaa;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+/* Efecto click activo */
+.options button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.options button.correct {
+  background: #e8f5e9;
+  border-color: #4caf50;
+  color: #2e7d32;
+  font-weight: bold;
+  animation: pulseGlow 1.5s infinite; /* Destello verde continuo */
+}
+
+.options button.wrong {
+  background: #ffebee;
+  border-color: #f44336;
+  color: #c62828;
+  animation: shake 0.4s ease-in-out; /* Tiembla al fallar */
+}
+
+.options button:disabled {
+  cursor: default;
+  opacity: 0.7; /* Opaca los botones no elegidos al terminar el turno */
+}
+
+/* Impedir que los botones correctos/incorrectos se vuelvan opacos si están deshabilitados */
+.options button.correct:disabled, 
+.options button.wrong:disabled {
+  opacity: 1;
+}
+
+.result-text {
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin: 10px 0;
+  animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Texto emerge con rebote */
+}
+
+.result-text.ok { color: #2e7d32; }
+.result-text.ko { color: #c62828; }
+
+.btn {
+  padding: 10px 24px;
+  background: #cc0000;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 10px;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+.btn:hover {
+  background: #b30000;
+  transform: scale(1.05);
+}
+
+.btn-outline {
+  padding: 8px 18px;
+  background: white;
+  color: #cc0000;
+  border: 2px solid #cc0000; /* Borde un poco más fuerte */
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  margin: 8px 0;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+.btn-outline:hover {
+  background: #ffebee;
+}
+
+.progress {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  margin: 12px 0;
+}
+
+.progress-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ddd;
+  transition: all 0.3s ease;
+}
+
+.progress-dot.ok  { 
+  background: #4caf50; 
+  transform: scale(1.1);
+}
+.progress-dot.ko  { 
+  background: #f44336; 
+}
+.progress-dot.cur { 
+  background: #ff9800; 
+  animation: pulseGlow 1.2s infinite; /* La bolita actual parpadea */
+}
+
+.loader {
+  text-align: center;
+  padding: 60px;
+  color: #999;
+  font-size: 1.1rem;
+}

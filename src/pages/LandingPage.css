@@ -1,0 +1,100 @@
+.landing {
+  min-height: 100vh;
+  background: #f5f5f5;
+}
+
+/* HERO */
+.landing-hero {
+  background: #cc0000;
+  color: white;
+  text-align: center;
+  padding: 60px 20px 50px;
+}
+
+.landing-pikachu {
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+  margin-bottom: 16px;
+}
+
+.landing-hero h1 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.landing-hero p {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 28px;
+}
+
+.landing-btns {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.landing-btns button {
+  padding: 10px 26px;
+  border-radius: 5px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: 2px solid white;
+  background: white;
+  color: #cc0000;
+  transition: opacity 0.2s;
+}
+
+.landing-btns button:hover {
+  opacity: 0.85;
+}
+
+.landing-btns button.outline {
+  background: transparent;
+  color: white;
+}
+
+/* CARDS */
+.landing-cards {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 40px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.lcard {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 24px 20px;
+  flex: 1;
+  min-width: 220px;
+  max-width: 260px;
+  text-align: center;
+}
+
+.lcard span {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.lcard h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #cc0000;
+}
+
+.lcard p {
+  font-size: 0.875rem;
+  color: #666;
+  line-height: 1.5;
+}

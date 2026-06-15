@@ -1,0 +1,45 @@
+.poke-card {
+  background: var(--card);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: var(--radius);
+  padding: 1.2rem 1rem;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+  position: relative;
+  overflow: hidden;
+}
+.poke-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255,255,255,0.2);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.45);
+}
+.poke-card__glow {
+  position: absolute;
+  top: -30px; right: -30px;
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  opacity: 0.1;
+  transition: opacity 0.3s;
+}
+.poke-card:hover .poke-card__glow { opacity: 0.25; }
+.poke-card__num  { font-size: 0.65rem; color: var(--muted); font-weight: 800; margin-bottom: 0.3rem; }
+.poke-card__img  {
+  width: 90px; height: 90px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.4));
+  transition: transform 0.3s;
+}
+.poke-card:hover .poke-card__img { transform: scale(1.1) translateY(-4px); }
+.poke-card__name {
+  font-size: 0.85rem; font-weight: 900;
+  text-transform: capitalize;
+  margin: 0.5rem 0 0.4rem;
+}
+.poke-card__types { display: flex; gap: 0.3rem; justify-content: center; flex-wrap: wrap; }
+.type-badge {
+  font-size: 0.58rem; font-weight: 800;
+  text-transform: capitalize;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+}
